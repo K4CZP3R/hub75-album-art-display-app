@@ -11,8 +11,9 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const spot = new SpotifyWebApi({
-    clientId: "868eeab41f0246c0bfb3cbcddaf8fa55",
-    redirectUri: "http://localhost:3000/api/callback",
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+    redirectUri: process.env.SPOTIFY_REDIRECT_URI,
   });
 
   const auth = await spot.authorizationCodeGrant(req.query.code as string);

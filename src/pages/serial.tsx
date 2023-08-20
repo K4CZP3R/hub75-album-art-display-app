@@ -1,5 +1,6 @@
 import { MatrixFill } from "@/components/matrix-fill";
 import { SerialSelector } from "@/components/serial-selector";
+import { SocketStatusCard } from "@/components/socket-status-card";
 import { SpotifyCard } from "@/components/spotify-card";
 import SpotifyLogin from "@/components/spotify-login";
 import { Button } from "@/components/ui/button";
@@ -18,8 +19,14 @@ export default function Serial() {
 
   return (
     <div>
-      <SerialSelector />
-      <MatrixFill />
+      <div className="flex">
+        <SerialSelector />
+        <SocketStatusCard />
+      </div>
+      <div className="flex">
+        <MatrixFill transport="serial" />
+        <MatrixFill transport="websocket" />
+      </div>
       <SpotifyCard />
     </div>
   );

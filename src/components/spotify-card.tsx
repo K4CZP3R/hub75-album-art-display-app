@@ -68,7 +68,7 @@ export function SpotifyCard() {
   }, [spotifyActive]);
 
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[650px]">
       <CardHeader>
         <CardTitle>Spotify</CardTitle>
         <CardDescription>Control Spotify here.</CardDescription>
@@ -116,12 +116,20 @@ export function SpotifyCard() {
         </div>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <SpotifyLogin disabled={spotifyActive} />
+        <SpotifyLogin />
         <MatrixImg
           src={currentSong?.item?.album?.images[0].url}
           dimension={coverSize}
           startPos={{ x: 0, y: 0 }}
           paletteSize={paletteSize}
+          transport="serial"
+        />
+        <MatrixImg
+          src={currentSong?.item?.album?.images[0].url}
+          dimension={coverSize}
+          startPos={{ x: 0, y: 0 }}
+          paletteSize={paletteSize}
+          transport="websocket"
         />
       </CardFooter>
     </Card>
